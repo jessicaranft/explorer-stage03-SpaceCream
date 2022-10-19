@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --ff-heading: 'Staatliches', cursive;
+  --ff-body: 'Palanquin', sans-serif;
+
+  --fs-h1: 4rem;
+  --fs-h2: 2rem;
+  --fs-body: 1.6rem;
+  --fs-p: clamp(1.4rem, 0.5rem + 1vw, 2rem);
+
+  --bg-header: hsl(218, 17%, 62%);
+  --bg-primary: hsl(233, 100%, 97%);
+  --bg-secondary: hsl(275, 18%, 79%);
+  --bg-card: hsl(312, 91%, 96%);
+  --fc-h1: hsl(0, 0%, 100%);
+  --fc-h2: hsl(232, 17%, 35%);
+  --fc-body: hsl(274, 84%, 12%);
+}
+
+body {
+  font-size: var(--fs-body);
+  color: var(--fc-body);
+  font-family: var(--ff-body);
+  background: var(--bg-primary);
+}
+
+body::before {
+  content: '';
+  background: var(--bg-header);
+  height: 27.9rem;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
+.page {
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header p {
+  font-size: var(--fs-p);
+  line-height: 3rem;
+
+  text-align: center;
+
+  padding: 3rem 3.2rem 3rem;
+
+  max-width: clamp(32rem, 30rem + 60vw, 70rem);
+  margin: auto;
+}
+
+header img {
+  display: block;
+  height: 13.7rem;
+  margin: 3.2rem auto 2rem;
+
+  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
+}
+
+header h1 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h1);
+  color: var(--fc-h1);
+
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  text-align: center;
+
+  display: inline-block;
+  width: 100%;
+  background: var(--bg-secondary);
+  padding: 0.8rem 0 0.7rem;
+  margin-bottom: 4.3rem;
+}
+
+main {
+  width: 100%;
+}
+
+.grid-wrapper {
+  display: grid;
+  gap: 3.2rem;
+  margin: 0 auto;
+  padding: 0 5rem;
+}
+
+.card {
+  min-width: clamp(5rem, 15rem + 10vw, 80rem);
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+
+  animation: downtop 700ms;
+}
+
+.card h2 {
+  font-family: var(--ff-heading);
+  color: var(--fc-h2);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  line-height: 3.4rem;
+  letter-spacing: 0.05em;
+
+  text-align: center;
+
+  background: var(--bg-card);
+  width: 11.2rem;
+  border-radius: 2rem;
+
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+
+  display: inline-block;
+  align-items: center;
+
+  animation: topdown 700ms;
+}
+
+.card img:hover {
+  opacity: 0.5;
+  transition: 200ms;
+}
+
+.footer {
+  display: none;
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 900px) {  
+  .page {
+    display: flex;
+  }
+
+  .header {
+    height: 100vh;
+  }
+  
+  .header,
+  header h1 {
+    max-width: clamp(15rem, 30rem + 2vw, 40rem);
+  }
+
+  body::before {
+    opacity: 0;
+  }
+
+  .header p {
+    color: var(--fc-h1);
+    padding: 3rem;
+  }
+
+  .header {
+    display: block;
+    gap: 3.2rem;
+    background: var(--bg-header);
+  }
+  
+  .grid-wrapper {
+    grid-template-areas: 
+    'A B C'
+    'D B F'
+    'D E F';
+
+    max-width: 100%;
+    height: auto;
+    margin: 5rem 0;
+    padding-left: clamp(5rem, 2rem + 10vw, 5rem);
+    padding-right: clamp(5rem, 2rem + 10vw, 5rem);
+    place-items: center;
+    text-align: center;
+  }
+
+  main div:nth-child(1) {
+    grid-area: A;
+  }
+
+  main div:nth-child(2) {
+    grid-area: B;
+  }
+
+  main div:nth-child(3) {
+    grid-area: C;
+  }
+
+  main div:nth-child(4) {
+    grid-area: D;
+  }
+
+  main div:nth-child(5) {
+    grid-area: E;
+  }
+
+  main div:nth-child(6) {
+    grid-area: F;
+  }
+
+  .footer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    line-height: 2.8rem;
+    text-align: center;
+    color: #4A4E69;
+    margin-top: 5rem;
+
+    display: block;
+  }
+
+  .footer a {
+    font-weight: 700;
+    text-decoration: none;
+    color: #4A4E69;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+}
