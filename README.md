@@ -2,21 +2,22 @@
 
 > Space Cream
 
-Desafio para criar uma página responsiva com as seguintes características:
+![preview](./.github/preview.png)
+
+This was a challenge project to create a responsive mobile-friendly page in HTML & CSS with the following features:
 
 - Grid Layout
-- Reponsividade para mobile e desktop
-- Animações CSS
-- Variáveis no CSS
-- Footer que aparece na versão desktop, mas some no mobile
+- Responsive page for mobile and desktop
+- CSS animations
+- CSS variables
+- Footer that appears on the desktop version, but it's hidden in the mobile version
 
-[Clique aqui para visualizar a página no ar](https://jessicaranft.github.io/explorer-stage03-SpaceCream/)
+[Click here to view it live!](https://jessicaranft.github.io/explorer-stage03-SpaceCream/)
 
-## Tecnologias
+## Languages
 
-- HTML5
-- CSS3
+`HTML` `CSS`
 
 ## Software
 
-- Visual Studio Code
+VSCode
